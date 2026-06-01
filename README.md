@@ -12,16 +12,15 @@ The kernel boots correctly, starts init, and launches the shell.
 ### Disk Image
 
 - Custom SCSI hard disk image
-- Linux kernel and root filesystem prepared from this repository
+- Linux kernel and root filesystem prepared from notvelleda repository
 
 ### Boot Procedure
 
 1. Build the notvelleda bootloader.
 2. Build the notvelleda uClinux kernel.
-3. Build the root filesystem image.
-4. Create the Macintosh SCSI disk image.
-5. Start MAME:
- (Windows command prompt)
+3. Build the root filesystem to the EXT2 SCSI disk image.
+4. Start MAME:
+ On Windows command prompt,
  mame macplus -hard1 rootfs.img -flop1 floppy.img -debug
 6. Wait for the kernel to boot.
 7. Confirm that the msh shell prompt appears.
@@ -42,26 +41,26 @@ The screenshot above shows successful startup of the system and arrival at the s
 
 This work was performed while investigating:
 
-Macintosh Plus boot process
-bootloader behavior
-SCSI driver operation
-uClinux 2.0.x kernel internals
-m68k bootloader code
-MAME debugging
-Early userspace startup sequence
-Acknowledgements
+- Macintosh Plus boot process
+- bootloader behavior
+- SCSI driver operation
+- uClinux 2.0.x kernel internals
+- m68k bootloader code
+- MAME debugging
+- Early userspace startup sequence
+- Acknowledgements
 
 Many technical challenges were solved through extensive discussions with ChatGPT.
 
 ChatGPT provided guidance on:
 
-m68k assembly analysis
-uClinux kernel internals
-bootloader investigation
-filesystem image creation
-debugging techniques
-MAME debugger usage
-reverse engineering of historical Macintosh Linux components
+- m68k assembly analysis
+- uClinux kernel internals
+- bootloader investigation
+- filesystem image creation
+- debugging techniques
+- MAME debugger usage
+- reverse engineering of historical Macintosh Linux components
 
 
 Its assistance significantly accelerated the investigation and development process.
