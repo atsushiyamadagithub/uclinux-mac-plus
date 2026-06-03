@@ -17,13 +17,20 @@ The kernel boots correctly, starts init, and launches the shell.
 ### Boot Procedure
 
 1. Build the notvelleda bootloader.
-2. Build the notvelleda uClinux kernel.
-3. Build the root filesystem to the EXT2 SCSI disk image.
-4. Start MAME:
- On Windows command prompt,
- mame macplus -hard1 rootfs.img -flop1 floppy.img -debug
-6. Wait for the kernel to boot.
-7. Confirm that the msh shell prompt appears.
+2. Add "    moveal #0x003f1ffc, %sp" to
+   
+   uClinux/linux-2.0.x/arch/m68knommu/platform/68000/MacPlus/crt0_ram.S   
+   
+4. Build the notvelleda uClinux kernel.
+5. Build the root filesystem to the EXT2 SCSI disk image.
+6. Start MAME:
+
+   On Windows command prompt,
+
+   mame macplus -hard1 rootfs.img -flop1 floppy.img -debug
+
+7. Wait for the kernel to boot.
+8. Confirm that the msh shell prompt appears.
 
 ### Current Status
 
