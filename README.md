@@ -20,7 +20,9 @@ The kernel boots correctly, starts init, and launches the shell.
 2. Add "    moveal #0x003f1ffc, %sp" to
    
    uClinux/linux-2.0.x/arch/m68knommu/platform/68000/MacPlus/crt0_ram.S   
-   
+
+   The bootloader should set the stack pointer according to the actual Mac Plus memory size, rather than simply using MemTop.
+
 4. Build the notvelleda uClinux kernel.
 5. Build the root filesystem to the EXT2 SCSI disk image.
 6. Start MAME:
