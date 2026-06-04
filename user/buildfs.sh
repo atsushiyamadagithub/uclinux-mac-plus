@@ -6,12 +6,13 @@ DEVICE=/dev/loop0
 PARTITION=${DEVICE}p1
 FSDIR=rootdir
 OVERLAYDIR=rootdir-overlay
-SIZE=64M
+SIZE=20M
 KERNEL_PATH=../uClinux/images/kernel
 CMDLINE_FILE=cmdline
 BOOTLOADER_DIR=../bootloader
 
 unmount() {
+    sync
     sudo umount "$MOUNTDIR"
     sudo losetup -d "$DEVICE"
     rm -r "$MOUNTDIR"
@@ -25,11 +26,11 @@ quit() {
     exit
 }
 
-echo "Building bootloader installer..."
-make -C $BOOTLOADER_DIR installer || quit true
+#echo "Building bootloader installer..."
+#make -C $BOOTLOADER_DIR installer || quit true
 
 echo "Setting up, mounting..."
-mkdir -p "$MOUNTDIR"
+mkdir -p $MOUNTDIR
 
 if [ "$1" = "clean" ]; then
     rm "$FILE"
@@ -37,18 +38,25 @@ fi
 
 if [ ! -f "$FILE" ]; then
     echo "File doesn't exist, creating it..."
-    truncate -s "$SIZE" "$FILE" || quit true
+    dd if=/dev/zero of=$FILE bs=1M count=64
 
-    echo "Installing bootloader..."
-    $BOOTLOADER_DIR/installer -b "$BOOTLOADER_DIR/boot_block.bin" -d "$BOOTLOADER_DIR/scsi_hdd_driver.bin" -s "$FILE"
+#    echo "Setting up loop device..."
+#    DEVICE=$(sudo losetup --find --show "$FILE") || quit true
+#    echo "LOOP DEVICE = $DEVICE"
 
-    sudo losetup -P "$DEVICE" "$FILE" || quit true
-    sudo mkfs.ext2 -O none -I 128 "$PARTITION" || quit true
-else
-    sudo losetup -P "$DEVICE" "$FILE" || quit true
+    echo "Creating filesystem..."
+#    sudo mkfs.ext2 -O none -I 128 "$DEVICE" || quit true
+
+#    echo "Installing bootloader..."
+#    BOOTLOADER_DIR/installer -b "$BOOTLOADER_DIR/boot_block.bin" -d "$BOOTLOADER_DIR/scsi_hdd_driver.bin" -s "$FILE"
+
+#    sudo losetup -P "$DEVICE" "$FILE" || quit true
+#    sudo mkfs.ext2 -O none -I 128 "$PARTITION" || quit true
+mkfs.ext2 -F -O none -I 128 $FILE
 fi
 
-sudo mount "$PARTITION" "$MOUNTDIR" || quit true
+echo "Mounting..."
+sudo mount /dev/loop0 $MOUNTDIR
 
 echo "Copying files..."
 
@@ -60,6 +68,8 @@ sudo cp -rv $OVERLAYDIR/* "$MOUNTDIR" || quit true
 sudo ln -s /var/tmp "$MOUNTDIR/tmp"
 
 echo "Creating device nodes..."
+
+sudo mkdir -p $MOUNTDIR/dev
 
 sudo mknod $MOUNTDIR/dev/mem c 1 1
 sudo mknod $MOUNTDIR/dev/kmem c 1 2
@@ -140,23 +150,28 @@ makescsi e 64
 makescsi f 80
 makescsi g 96
 
-echo "Copying files for bootloader..."
+#echo "Copying files for bootloader..."
 
-if [ ! -f "$KERNEL_PATH" ]; then
-    echo "warning: kernel hasn't been built yet, resulting image will not be bootable"
-else
-    sudo cp "$KERNEL_PATH" "$MOUNTDIR/" || quit true
-fi
+#if [ ! -f "$KERNEL_PATH" ]; then
+#    echo "warning: kernel hasn't been built yet, resulting image will not be bootable"
+#else
+#    sudo cp "$KERNEL_PATH" "$MOUNTDIR/" || quit true
+#fi
 
-if [ ! -f "$CMDLINE_FILE" ]; then
-    cp "${CMDLINE_FILE}.default" "$CMDLINE_FILE"
-fi
+#if [ ! -f "$CMDLINE_FILE" ]; then
+#    cp "${CMDLINE_FILE}.default" "$CMDLINE_FILE"
+#fi
 
-sudo cp "$CMDLINE_FILE" "$MOUNTDIR/" || quit true
+#sudo cp "$CMDLINE_FILE" "$MOUNTDIR/" || quit true
+#echo "root=/dev/sda rw console=ttyS0" > "$CMDLINE_FILE"
 
-echo "Installing bootloader again..."
-sudo umount "$MOUNTDIR"
-$BOOTLOADER_DIR/installer -b "$BOOTLOADER_DIR/boot_block.bin" -d "$BOOTLOADER_DIR/scsi_hdd_driver.bin" -s "$FILE"
+#echo "Installing bootloader again..."
+#sudo umount "$MOUNTDIR"
+#$BOOTLOADER_DIR/installer -b "$BOOTLOADER_DIR/boot_block.bin" -d "$BOOTLOADER_DIR/scsi_hdd_driver.bin" -s "$FILE"
+
+sudo chmod 600 $MOUNTDIR/dev/console
+sudo chmod 600 $MOUNTDIR/dev/tty0
+sudo chmod 666 $MOUNTDIR/dev/null
 
 echo "Unmounting..."
 unmount
