@@ -16,33 +16,19 @@ The kernel boots correctly, starts init, and launches the shell.
 
 ### Boot Procedure
 
-1. Build the notvelleda bootloader.
-   
-   user/buildbbb.sh
-
-2. Build the boot floppy image.
-
-   uClinux/buildbf.sh
-   
-3. Add "    moveal #0x003f1ffc, %sp" to
-   
-   uClinux/linux-2.0.x/arch/m68knommu/platform/68000/MacPlus/crt0_ram.S   
+1. Run buildenv/build.sh to build the Docker build environment
+2. Run user/buildbbb.sh to build the notvelleda bootloader.
+3. Run uClinux/buildbf.sh to build the boot floppy image. 
+4. Add "moveal #0x003f1ffc, %sp" to uClinux/linux-2.0.x/arch/m68knommu/platform/68000/MacPlus/crt0_ram.S   
 
    The bootloader should set the stack pointer according to the actual Mac Plus memory size, rather than simply using MemTop.
 
-4. Build the notvelleda uClinux kernel.
-   
-   uClinux/build.sh
-   
-5. Build the root filesystem to the EXT2 SCSI disk image.
-6. Start MAME:
+5. Run uClinux/build.sh to build the notvelleda uClinux kernel.
+6. Build the root filesystem to the EXT2 SCSI disk image.
+7. Start MAME:   mame macplus -hard1 rootfs.img -flop1 floppy.img -debug
 
-   On Windows command prompt,
-
-   mame macplus -hard1 rootfs.img -flop1 floppy.img -debug
-
-7. Wait for the kernel to boot.
-8. Confirm that the msh shell prompt appears.
+Wait for the kernel to boot.
+Confirm that the msh shell prompt appears.
 
 ### Current Status
 
