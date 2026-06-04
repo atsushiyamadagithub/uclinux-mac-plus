@@ -19,6 +19,10 @@ The kernel boots correctly, starts init, and launches the shell.
 1. Build the notvelleda bootloader.
    
    user/buildbbb.sh
+
+2. Build the boot floppy image.
+
+   uClinux/buildbf.sh
    
 3. Add "    moveal #0x003f1ffc, %sp" to
    
@@ -30,15 +34,15 @@ The kernel boots correctly, starts init, and launches the shell.
    
    uClinux/build.sh
    
-7. Build the root filesystem to the EXT2 SCSI disk image.
-8. Start MAME:
+5. Build the root filesystem to the EXT2 SCSI disk image.
+6. Start MAME:
 
    On Windows command prompt,
 
    mame macplus -hard1 rootfs.img -flop1 floppy.img -debug
 
-9. Wait for the kernel to boot.
-10. Confirm that the msh shell prompt appears.
+7. Wait for the kernel to boot.
+8. Confirm that the msh shell prompt appears.
 
 ### Current Status
 
