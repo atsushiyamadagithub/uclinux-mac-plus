@@ -985,6 +985,22 @@ asmlinkage void start_kernel(void)
 {
 	char * command_line;
 
+	printk("\n");
+	printk("Welcome to\n");
+	printk("\n");
+	printk("         ____ _  _\n");
+	printk("        / ___| ||_|\n");
+	printk("  _   _| |   | | _ ___   _   _  _  _\n");
+	printk(" | | | | |   | || |  _ \\| | | |\\ \\/ /\n");
+	printk(" | |_| | |___| || | | | | |_| |/    \\ \n");
+	printk(" |  ___\\_____|_||_|_| |_\\_____|\\_/\\_/\n");
+	printk(" | |\n");
+	printk(" |_|\n");
+	printk("\n");
+	printk("For further information check:\n");
+	printk("http://www.uclinux.org/\n");
+	printk("\n");
+	
 /*
  *	This little check will move.
  */
