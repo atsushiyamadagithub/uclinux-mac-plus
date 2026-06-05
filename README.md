@@ -25,8 +25,9 @@ The kernel boots correctly, starts init, and launches the shell.
 
    The bootloader should set the stack pointer according to the actual Mac Plus memory size, rather than simply using MemTop.
    
-5. Run user/buildfs.sh to build the root filesystem to the EXT2 SCSI disk image.
-6. Start MAME:   mame macplus -hard1 rootfs.img -flop1 floppy.img -debug
+5. Run user/build.sh to build the root filesystem.
+6. Run user/buildfs.sh to build the EXT2 SCSI disk image.
+7. Start MAME:   mame macplus -hard1 rootfs.img -flop1 floppy.img -debug
 
 Wait for the kernel to boot.
 Confirm that the msh shell prompt appears.
