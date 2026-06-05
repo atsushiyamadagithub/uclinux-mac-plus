@@ -15,7 +15,7 @@ unmount() {
     sync
     sudo umount "$MOUNTDIR"
     sudo losetup -d "$DEVICE"
-    rm -r "$MOUNTDIR"
+#    rm -r "$MOUNTDIR"
 }
 
 quit() {
@@ -26,9 +26,6 @@ quit() {
     exit
 }
 
-#echo "Building bootloader installer..."
-#make -C $BOOTLOADER_DIR installer || quit true
-
 echo "Setting up, mounting..."
 mkdir -p $MOUNTDIR
 
@@ -36,27 +33,17 @@ if [ "$1" = "clean" ]; then
     rm "$FILE"
 fi
 
-if [ ! -f "$FILE" ]; then
-    echo "File doesn't exist, creating it..."
-    dd if=/dev/zero of=$FILE bs=1M count=64
+echo "Creating it..."
+dd if=/dev/zero of=$FILE bs=1M count=20
 
-#    echo "Setting up loop device..."
-#    DEVICE=$(sudo losetup --find --show "$FILE") || quit true
-#    echo "LOOP DEVICE = $DEVICE"
+echo "Creating filesystem..."
+mkfs.ext2 -F -O none -I 128 $FILE || quit true
 
-    echo "Creating filesystem..."
-#    sudo mkfs.ext2 -O none -I 128 "$DEVICE" || quit true
-
-#    echo "Installing bootloader..."
-#    BOOTLOADER_DIR/installer -b "$BOOTLOADER_DIR/boot_block.bin" -d "$BOOTLOADER_DIR/scsi_hdd_driver.bin" -s "$FILE"
-
-#    sudo losetup -P "$DEVICE" "$FILE" || quit true
-#    sudo mkfs.ext2 -O none -I 128 "$PARTITION" || quit true
-mkfs.ext2 -F -O none -I 128 $FILE
-fi
+echo "Setting up loop device..."
+LOOP=$(sudo losetup -f --show root.img)
 
 echo "Mounting..."
-sudo mount /dev/loop0 $MOUNTDIR
+sudo mount $LOOP $MOUNTDIR
 
 echo "Copying files..."
 
@@ -149,25 +136,6 @@ makescsi d 48
 makescsi e 64
 makescsi f 80
 makescsi g 96
-
-#echo "Copying files for bootloader..."
-
-#if [ ! -f "$KERNEL_PATH" ]; then
-#    echo "warning: kernel hasn't been built yet, resulting image will not be bootable"
-#else
-#    sudo cp "$KERNEL_PATH" "$MOUNTDIR/" || quit true
-#fi
-
-#if [ ! -f "$CMDLINE_FILE" ]; then
-#    cp "${CMDLINE_FILE}.default" "$CMDLINE_FILE"
-#fi
-
-#sudo cp "$CMDLINE_FILE" "$MOUNTDIR/" || quit true
-#echo "root=/dev/sda rw console=ttyS0" > "$CMDLINE_FILE"
-
-#echo "Installing bootloader again..."
-#sudo umount "$MOUNTDIR"
-#$BOOTLOADER_DIR/installer -b "$BOOTLOADER_DIR/boot_block.bin" -d "$BOOTLOADER_DIR/scsi_hdd_driver.bin" -s "$FILE"
 
 sudo chmod 600 $MOUNTDIR/dev/console
 sudo chmod 600 $MOUNTDIR/dev/tty0
