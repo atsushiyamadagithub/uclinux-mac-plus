@@ -17,7 +17,7 @@ The kernel boots correctly, starts init, and launches the shell.
 ### Boot Procedure
 
 1. Run buildenv/build.sh to build the Docker build environment
-2. Run user/buildbbb.sh to build the notvelleda bootloader
+2. Make directory bootloader and copy the notvelleda bootloader files to bootloader directory.
 3. Run uClinux/buildbf.sh to build the boot floppy image. The resulting image file is floppy.img
 4. Run uClinux/build.sh to build the notvelleda uClinux kernel
 
