@@ -38,7 +38,7 @@ Confirm that the msh shell prompt appears
 
 <img width="962" height="673" alt="4" src="https://github.com/user-attachments/assets/f0a184d4-24ce-4809-bb0e-075c799bd059" />
 
-<img width="962" height="673" alt="0" src="https://github.com/user-attachments/assets/2597ab20-ecac-45a9-9340-85ec8ab4eb7e" />
+<img width="962" height="673" alt="5" src="https://github.com/user-attachments/assets/1b78ca48-7f79-4e17-8323-5f155cf7605e" />
 
 <img width="962" height="673" alt="3" src="https://github.com/user-attachments/assets/d89a15b2-01c3-404e-a480-564b1a540ecb" />
 
