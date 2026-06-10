@@ -42,9 +42,7 @@ Confirm that the msh shell prompt appears
 
 <img width="962" height="673" alt="4" src="https://github.com/user-attachments/assets/f0a184d4-24ce-4809-bb0e-075c799bd059" />
 
-<img width="962" height="673" alt="5" src="https://github.com/user-attachments/assets/1b78ca48-7f79-4e17-8323-5f155cf7605e" />
-
-<img width="962" height="673" alt="3" src="https://github.com/user-attachments/assets/d89a15b2-01c3-404e-a480-564b1a540ecb" />
+<img width="962" height="673" alt="6" src="https://github.com/user-attachments/assets/3c95b74f-93d4-40f8-973c-bf500af220df" />
 
 The screenshot above shows successful startup of the system and arrival at the shell prompt.
 
