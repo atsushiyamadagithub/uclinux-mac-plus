@@ -17,7 +17,7 @@ The kernel boots correctly, starts init, and launches the shell.
 ### Boot Procedure
 
 1. Change to the buildenv directory and run build.sh to build the Docker build environment
-2. Make directory bootloader and copy the notvelleda bootloader files to bootloader directory.
+2. Create a `bootloader` directory alongside the `uClinux` and `user` directories, and copy the original bootloader files from notvelleda's repository into it.
 3. Run build.sh to build the notvelleda uClinux kernel
 
    I added "moveal #0x003f1ffc, %sp" to uClinux/linux-2.0.x/arch/m68knommu/platform/68000/MacPlus/crt0_ram.S
