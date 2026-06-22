@@ -39,6 +39,7 @@ Confirm that the msh shell prompt appears
 ### Current Status
 
  Successfully reached the `msh` shell prompt.
+The kernel is booted from the floppy image, and the ext2 filesystem is used as the root filesystem.
 
 <img width="962" height="673" alt="4" src="https://github.com/user-attachments/assets/f0a184d4-24ce-4809-bb0e-075c799bd059" />
 
@@ -47,6 +48,15 @@ Confirm that the msh shell prompt appears
 <img width="962" height="673" alt="6" src="https://github.com/user-attachments/assets/3c95b74f-93d4-40f8-973c-bf500af220df" />
 
 The screenshot above shows successful startup of the system and arrival at the shell prompt.
+
+
+<img width="962" height="673" alt="1" src="https://github.com/user-attachments/assets/3b675c43-14ca-4335-9ea4-6ecb80cf2b1e" />
+
+<img width="962" height="673" alt="2" src="https://github.com/user-attachments/assets/148696e0-9bc8-4f76-ae3e-237d3e5ac2a5" />
+
+<img width="962" height="673" alt="3" src="https://github.com/user-attachments/assets/52e3af28-dd65-43f8-886e-559ed602669f" />
+
+The kernel is booted from the floppy image, and the romfs filesystem is used as the root filesystem.
 
 ### Notes
 
