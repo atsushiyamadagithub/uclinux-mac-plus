@@ -54,7 +54,7 @@ The screenshot above shows successful startup of the system and arrival at the s
 
 <img width="962" height="673" alt="2" src="https://github.com/user-attachments/assets/148696e0-9bc8-4f76-ae3e-237d3e5ac2a5" />
 
-<img width="962" height="673" alt="3" src="https://github.com/user-attachments/assets/52e3af28-dd65-43f8-886e-559ed602669f" />
+<img width="962" height="673" alt="3" src="https://github.com/user-attachments/assets/0db4e247-e13a-4f3d-84ed-f1d2d810e81e" />
 
 The kernel is booted from the floppy image, and the romfs filesystem is used as the root filesystem.
 
