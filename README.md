@@ -43,7 +43,7 @@ The kernel is booted from the floppy image, and the ext2 filesystem is used as t
 
 <img width="962" height="673" alt="4" src="https://github.com/user-attachments/assets/f0a184d4-24ce-4809-bb0e-075c799bd059" />
 
-The screenshot above shows loading the kernel, and jump to _start, start_kernel.
+The screenshot above shows loading the kernel.
 
 <img width="962" height="673" alt="7" src="https://github.com/user-attachments/assets/5438d0a4-8196-4ec3-8a98-dbe7cd9896a6" />
 
