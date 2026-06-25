@@ -12,6 +12,7 @@ The kernel boots correctly, starts init, and launches the shell.
 ### Disk Image
 
 - Custom SCSI hard disk image
+- Custom ROMFS floppy disk image
 - Linux kernel and root filesystem prepared from notvelleda repository
 
 ### Boot Procedure
