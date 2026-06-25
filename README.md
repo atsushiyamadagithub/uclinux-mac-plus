@@ -20,7 +20,7 @@ The kernel boots correctly, starts init, and launches the shell.
 2. Create a `bootloader` directory alongside the `uClinux` and `user` directories, and copy the original bootloader files from notvelleda's repository into it.
 3. Run build.sh to build the notvelleda uClinux kernel
 
-   I added "moveal #0x003f1ffc, %sp" to uClinux/linux-2.0.x/arch/m68knommu/platform/68000/MacPlus/crt0_ram.S
+   Added "moveal #0x003f1ffc, %sp" to uClinux/linux-2.0.x/arch/m68knommu/platform/68000/MacPlus/crt0_ram.S
 
    The bootloader should set the stack pointer according to the actual Mac Plus memory size, rather than simply using MemTop
    
@@ -53,6 +53,22 @@ The screenshot above shows the kernel is starting.
 
 The screenshot above shows successful startup of the system and arrival at the shell prompt.
 
+### Boot Procedure for romfs floppy image
+
+3. Run build.sh to build the notvelleda uClinux kernel
+
+   Added "moveal #0x003f1ffc, %sp" to uClinux/linux-2.0.x/arch/m68knommu/platform/68000/MacPlus/crt0_ram.S
+
+   The bootloader should set the stack pointer according to the actual Mac Plus memory size, rather than simply using MemTop
+   
+4. Change to the user directory and run build.sh to build the romfs filesystem
+5. Run buildfs.sh to build the romfs filesystem disk image. The resulting image file is romfs.img
+
+   This custom user/buildfs.sh script builds an ext2 root filesystem image on /dev/sda without a Macintosh partition map.
+   The kernel is booted from the floppy image, and the ext2 filesystem is used as the root filesystem.
+   
+6. Change to the uClinux directory and run buildbf.sh to build the boot floppy image. The resulting image file is floppy.img
+7. Start MAME:   mame macplus -flop1 floppy.img
 
 <img width="962" height="673" alt="1" src="https://github.com/user-attachments/assets/3b675c43-14ca-4335-9ea4-6ecb80cf2b1e" />
 
