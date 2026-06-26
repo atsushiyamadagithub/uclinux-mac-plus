@@ -56,28 +56,64 @@ The screenshot above shows successful startup of the system and arrival at the s
 
 ### Boot Procedure for romfs floppy image
 
-3. Run build.sh to build the notvelleda uClinux kernel
+1. Run docker container following command for kernel build environment  
 
-#if defined(CONFIG_MAC_PLUS)
-   #define CAT_ROMARRAY
-#endif
+   docker run -it --rm --user $(id -u):$(id -g) --mount type=bind,source="$(pwd)",target=/linux --workdir /linux -e TERM=xterm-256color uclinux-buildenv:0.1 bash
 
+2. menuconfig
+   make ARCH=m68knommu CROSS_COMPILE=m68k-elf- menuconfig
+
+   Kernel/Library/Defaults Selection  --->
+
+   Customize Kernel Settings
+
+   Floppy, IDE, and other block devices
+
+   <*> ROM disk memory block device
+
+   Filesystems  --->
+
+   <*> ROM filesystem support
+
+   Exit and Save
+
+3. 
+   make ARCH=m68knommu CROSS_COMPILE=m68k-elf- clean
+
+   make ARCH=m68knommu CROSS_COMPILE=m68k-elf- dep
+
+   make ARCH=m68knommu CROSS_COMPILE=m68k-elf-
+
+4. Modify uClinux/linux-2.0.x/drivers/block/blkmem.c
+
+--> 174
+   #if defined(CONFIG_MAC_PLUS)
+       #define CAT_ROMARRAY
+   #endif
+
+   #define ROOT_ARENA 0 --> 208
+
+--> 313
 #ifdef CAT_ROMARRAY
+#if defined(CONFIG_MAC_PLUS)
+	{0, 0x00300000, -1},
+#else
 	{0, 0, -1},
+#endif
 #define FIXUP_ARENAS \
-        arena[0].address = (unsigned long)__data_rom_start + (unsigned long)_edata - (unsigned long)__data_start;
+	arena[0].address = 0x00300000;
 #endif
 
-   to uClinux/linux-2.0.x/drivers/block/blkmem.c
+5. Run build.sh to build the notvelleda uClinux kernel
    
-5. Change to the user directory and run build.sh to build the romfs filesystem
-6. Run buildfs.sh to build the romfs filesystem disk image. The resulting image file is romfs.img
+6. Change to the user directory and run build.sh to build the romfs filesystem
+7. Run buildfs.sh to build the romfs filesystem disk image. The resulting image file is romfs.img
 
    This custom user/buildfs.sh script builds an romfs filesystem image.
    The kernel is booted from the floppy image, and the romfs filesystem is used as the root filesystem.
    
-7. Change to the uClinux directory and run buildbf.sh to build the boot floppy image. The resulting image file is floppy.img
-8. Start MAME:   mame macplus -flop1 floppy.img
+8. Change to the uClinux directory and run buildbf.sh to build the boot floppy image. The resulting image file is floppy.img
+9. Start MAME:   mame macplus -flop1 floppy.img
 
 <img width="962" height="673" alt="1" src="https://github.com/user-attachments/assets/3b675c43-14ca-4335-9ea4-6ecb80cf2b1e" />
 
