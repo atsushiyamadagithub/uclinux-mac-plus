@@ -127,6 +127,17 @@ The screenshot above shows the kernel is starting.
 
 The kernel is booted from the floppy image, and the romfs filesystem is used as the root filesystem.
 
+### Boot Procedure for 
+
+
+
+
+<img width="962" height="673" alt="1" src="https://github.com/user-attachments/assets/088a61db-7c5e-4b41-8275-5a8ea7d12469" />
+
+<img width="962" height="673" alt="2" src="https://github.com/user-attachments/assets/dadf3841-17a1-4d1c-8c8c-f5355c8db729" />
+
+<img width="962" height="673" alt="3" src="https://github.com/user-attachments/assets/4d859245-1c81-4673-86f6-6b19c744791c" />
+
 ### Notes
 
 This work was performed while investigating:
