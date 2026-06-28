@@ -15,7 +15,7 @@ The kernel boots correctly, starts init, and launches the shell.
 - Custom ROMFS floppy disk image
 - Linux kernel and root filesystem prepared from notvelleda repository
 
-### Boot Procedure
+### Boot Procedure for Custom SCSI hard disk image
 
 1. Change to the buildenv directory and run build.sh to build the Docker build environment
 2. Create a `bootloader` directory alongside the `uClinux` and `user` directories, and copy the original bootloader files from notvelleda's repository into it.
@@ -127,10 +127,7 @@ The screenshot above shows the kernel is starting.
 
 The kernel is booted from the floppy image, and the romfs filesystem is used as the root filesystem.
 
-### Boot Procedure for 
-
-
-
+### Boot Procedure for notvelleda SCSI hard disk image
 
 <img width="962" height="673" alt="1" src="https://github.com/user-attachments/assets/088a61db-7c5e-4b41-8275-5a8ea7d12469" />
 
