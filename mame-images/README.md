@@ -10,3 +10,7 @@ mame macplus -flop1 boot-floppy-romfs.img
 
 The kernel is booted from the floppy image, and the romfs filesystem is used as the root filesystem.
 
+### Use notvelleda root filesystem
+mame macplus -hard1 notvelleda-root.img
+
+The kernel is booted from the SCSI hard disk image, and the filesystem is used as the root filesystem.
