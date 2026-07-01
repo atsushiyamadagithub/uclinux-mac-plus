@@ -137,7 +137,7 @@ The kernel is booted from the floppy image, and the romfs filesystem is used as 
 ### Boot Procedure for notvelleda SCSI hard disk image
 
 Since the installer places the ext2 filesystem starting at sector 16, the loop device is created with an offset of 16 × 512 bytes before running mkfs.ext2:<br>
-Accordingly, mybuildfs.sh was modified as follows:<br>
+Accordingly, nbuildfs.sh was modified as follows:<br>
 PARTLOOP=$(sudo losetup -f --show -o $((16*512)) "$FILE") || quit true<br>
 sudo mkfs.ext2 -O none -I 128 "$PARTLOOP" || quit true<br>
 
