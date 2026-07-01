@@ -128,7 +128,7 @@ Blkmem copyright 1998,1999 D. Jeff Dionne<br>
 Blkmem copyright 1998 Kenneth Albanowski<br>
 Blkmem 1 disk images:<br>
 0: 300000-347BFF (RO)<br>
-The following kernel boot messages appear when `ROM filesystem support` is enabled in `Customize Kernel Settings, Filesystems`:<br>
+You must enable ROM filesystem support in the kernel configuration to mount a ROMFS filesystem.<br>
 
 <img width="962" height="673" alt="3" src="https://github.com/user-attachments/assets/0db4e247-e13a-4f3d-84ed-f1d2d810e81e" />
 
