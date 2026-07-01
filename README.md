@@ -142,6 +142,8 @@ The kernel is booted from the floppy image, and the romfs filesystem is used as 
 
 <img width="962" height="673" alt="3" src="https://github.com/user-attachments/assets/4d859245-1c81-4673-86f6-6b19c744791c" />
 
+During the partition check, the kernel found the sda1 partition and mounted the ext2 filesystem as the root filesystem.
+
 ### Notes
 
 This work was performed while investigating:
