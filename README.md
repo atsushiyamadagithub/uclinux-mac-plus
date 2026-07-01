@@ -117,11 +117,18 @@ The screenshot above shows successful startup of the system and arrival at the s
 
 <img width="962" height="673" alt="1" src="https://github.com/user-attachments/assets/3b675c43-14ca-4335-9ea4-6ecb80cf2b1e" />
 
-The screenshot above shows loading the kernel and romfs.img.
+The screenshot above shows the kernel being loaded, followed by romfs.img.
+The solid white progress bar indicates the kernel being loaded. The dotted black-and-white progress bar indicates romfs.img being loaded immediately afterward.
 
 <img width="962" height="673" alt="2" src="https://github.com/user-attachments/assets/148696e0-9bc8-4f76-ae3e-237d3e5ac2a5" />
 
-The screenshot above shows the kernel is starting.
+The screenshot above shows the kernel is starting.<br>
+The following kernel boot messages appear when `ROM disk memory block device` is enabled in `Customize Kernel Settings, Floppy, IDE, and other block devices`:<br>
+Blkmem copyright 1998,1999 D. Jeff Dionne<br>
+Blkmem copyright 1998 Kenneth Albanowski<br>
+Blkmem 1 disk images:<br>
+0: 300000-347BFF (RO)<br>
+The following kernel boot messages appear when `ROM filesystem support` is enabled in `Customize Kernel Settings, Filesystems`:<br>
 
 <img width="962" height="673" alt="3" src="https://github.com/user-attachments/assets/0db4e247-e13a-4f3d-84ed-f1d2d810e81e" />
 
