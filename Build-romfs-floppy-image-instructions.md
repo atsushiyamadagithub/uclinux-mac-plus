@@ -1,5 +1,9 @@
 ### Boot Procedure for Custom ROMFS image
 
+### Build the boot_block
+
+patch < boot_block-romfs.patch
+
 ### Build the kernel
 
 1. Run docker container following command for kernel build environment<br>
@@ -49,6 +53,8 @@
 #define FIXUP_ARENAS \
 	arena[0].address = 0x00300000;
 #endif
+
+patch < blkmem-romfs.patch
 
 4. Add "moveal #0x003f1ffc, %sp" to uClinux/linux-2.0.x/arch/m68knommu/platform/68000/MacPlus/crt0_ram.S<br>
    The bootloader should set the stack pointer according to the actual Mac Plus memory size, rather than simply using MemTop
