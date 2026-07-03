@@ -1,14 +1,12 @@
 ### If you build the kernel
 
-1. Run docker container following command for kernel build environment  
+1. Run docker container following command for kernel build environment<br>
+```docker run -it --rm --user $(id -u):$(id -g) --mount type=bind,source="$(pwd)",target=/linux --workdir /linux -e TERM=xterm-256color uclinux-buildenv:0.1 bash```
 
-   docker run -it --rm --user $(id -u):$(id -g) --mount type=bind,source="$(pwd)",target=/linux --workdir /linux -e TERM=xterm-256color uclinux-buildenv:0.1 bash
+3.
+   ```make ARCH=m68knommu CROSS_COMPILE=m68k-elf- menuconfig```
 
-2. make ARCH=m68knommu CROSS_COMPILE=m68k-elf- menuconfig
-
-   Kernel/Library/Defaults Selection  --->
-
-   Customize Kernel Settings
+   Kernel/Library/Defaults Selection  ---> Customize Kernel Settings
 
    be sure to enable: ROM disk memory block device
 
@@ -20,14 +18,12 @@
 
    Exit and Save
    
-3. 
-   make ARCH=m68knommu CROSS_COMPILE=m68k-elf- clean
+4. 
+   ```make ARCH=m68knommu CROSS_COMPILE=m68k-elf- clean```<br>
+   ```make ARCH=m68knommu CROSS_COMPILE=m68k-elf- dep```<br>
+   ```make ARCH=m68knommu CROSS_COMPILE=m68k-elf-```<br>
 
-   make ARCH=m68knommu CROSS_COMPILE=m68k-elf- dep
-
-   make ARCH=m68knommu CROSS_COMPILE=m68k-elf-
-
-4. Modify uClinux/linux-2.0.x/drivers/block/blkmem.c
+5. Modify uClinux/linux-2.0.x/drivers/block/blkmem.c
 
 --> 174
    #if defined(CONFIG_MAC_PLUS)
