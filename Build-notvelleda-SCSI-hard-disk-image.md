@@ -1,4 +1,4 @@
-### Boot Procedure for notvelleda SCSI hard disk image
+## Boot Procedure for notvelleda SCSI hard disk image
 
 ### Build the kernel
 1. Add "moveal #0x003f1ffc, %sp" to uClinux/linux-2.0.x/arch/m68knommu/platform/68000/MacPlus/crt0_ram.S<br>
