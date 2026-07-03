@@ -23,18 +23,6 @@ Successfully reached the msh shell prompt using all of the following boot config
 * Booting from a kernel + custom ROMFS floppy disk image (ROMFS root filesystem)
 * Booting from a SCSI hard disk image containing both the kernel and the root filesystem, prepared from the notvelleda repository
 
-<img width="962" height="673" alt="4" src="https://github.com/user-attachments/assets/f0a184d4-24ce-4809-bb0e-075c799bd059" />
-
-The screenshot above shows loading the kernel.
-
-<img width="962" height="673" alt="7" src="https://github.com/user-attachments/assets/5438d0a4-8196-4ec3-8a98-dbe7cd9896a6" />
-
-The screenshot above shows the kernel is starting.
-
-<img width="962" height="673" alt="6" src="https://github.com/user-attachments/assets/3c95b74f-93d4-40f8-973c-bf500af220df" />
-
-The screenshot above shows successful startup of the system and arrival at the shell prompt.
-
 ### Notes
 
 This work was performed while investigating:
