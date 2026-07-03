@@ -1,0 +1,21 @@
+### Boot Procedure for Custom SCSI hard disk image
+
+1. Change to the buildenv directory and run build.sh to build the Docker build environment
+2. Create a `bootloader` directory alongside the `uClinux` and `user` directories, and copy the original bootloader files from notvelleda's repository into it.
+3. Run build.sh to build the notvelleda uClinux kernel
+
+   Added "moveal #0x003f1ffc, %sp" to uClinux/linux-2.0.x/arch/m68knommu/platform/68000/MacPlus/crt0_ram.S
+
+   The bootloader should set the stack pointer according to the actual Mac Plus memory size, rather than simply using MemTop
+   
+4. Change to the user directory and run build.sh to build the root filesystem
+5. Run buildfs.sh to build the root filesystem disk image. The resulting image file is root.img
+
+   This custom user/buildfs.sh script builds an ext2 root filesystem image on /dev/sda without a Macintosh partition map.
+   The kernel is booted from the floppy image, and the ext2 filesystem is used as the root filesystem.
+   
+6. Change to the uClinux directory and run buildbf.sh to build the boot floppy image. The resulting image file is floppy.img
+7. Start MAME:   mame macplus -hard1 root.img -flop1 floppy.img
+
+Wait for the kernel to boot
+Confirm that the msh shell prompt appears
