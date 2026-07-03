@@ -15,8 +15,8 @@ The kernel boots correctly, starts init, and launches the shell.
 - Boot kernel and custom ROMFS floppy disk image
 - Kernel and root filesystem SCSI hard disk image prepared from notvelleda repository
 
-You can try it with pre-built image.
-- [Prebuilt images](mame images)
+You can try it with prebuilt images.
+- [Prebuilt images](mame-images)
 
 ### Current Status
 
