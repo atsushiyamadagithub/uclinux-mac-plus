@@ -1,3 +1,5 @@
+### Boot Procedure for Custom ROMFS image
+
 ### Build the kernel
 
 1. Run docker container following command for kernel build environment<br>
