@@ -5,6 +5,7 @@ Accordingly, buildntvfs.sh was modified as follows:<br>
 PARTLOOP=$(sudo losetup -f --show -o $((16*512)) "$FILE") || quit true<br>
 sudo mkfs.ext2 -O none -I 128 "$PARTLOOP" || quit true<br>
 
+### Build the notvelleda root filesystem
 Run buildntvfs.sh to build the root filesystem disk image. The resulting image file is root.img
 
 <img width="962" height="673" alt="1" src="https://github.com/user-attachments/assets/088a61db-7c5e-4b41-8275-5a8ea7d12469" />
