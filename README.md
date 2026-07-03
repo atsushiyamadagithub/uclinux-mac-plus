@@ -13,7 +13,7 @@ The kernel boots correctly, starts init, and launches the shell.
 
 - Custom SCSI hard disk image
 - Custom ROMFS floppy disk image
-- Linux kernel and root filesystem prepared from notvelleda repository
+- uClinux 68knommu kernel and root filesystem prepared from notvelleda repository
 
 ### Boot Procedure for Custom SCSI hard disk image
 
