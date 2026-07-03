@@ -9,6 +9,9 @@
    ```make ARCH=m68knommu CROSS_COMPILE=m68k-elf- menuconfig```
 
    Kernel/Library/Defaults Selection  ---> Customize Kernel Settings
+<img width="859" height="410" alt="1" src="https://github.com/user-attachments/assets/83810055-28e8-4465-895e-a5cb68d6ed98" />
+<img width="859" height="410" alt="2" src="https://github.com/user-attachments/assets/8c411c13-6e81-41bc-a5a6-2035599fc2a4" />
+<img width="859" height="410" alt="3" src="https://github.com/user-attachments/assets/91d26204-fe3f-478c-ba9e-2c999a727ec2" />
 
    be sure to enable: ROM disk memory block device
 
@@ -17,6 +20,8 @@
    be sure to enable: ROM filesystem support
 
    <img width="859" height="410" alt="ROM filesystem support" src="https://github.com/user-attachments/assets/5fe59560-985a-4f6c-9c80-7e5cc17a8fd7" />
+
+<img width="859" height="410" alt="4" src="https://github.com/user-attachments/assets/af9a96c5-147e-420b-914f-40cc48497739" />
 
    Exit and Save
    
