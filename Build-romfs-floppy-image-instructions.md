@@ -1,4 +1,4 @@
-### If you build the kernel using
+### If you build the kernel
 
 1. Run docker container following command for kernel build environment  
 
