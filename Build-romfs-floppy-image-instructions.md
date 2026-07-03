@@ -45,6 +45,8 @@
 	arena[0].address = 0x00300000;
 #endif
 
+4. Add "moveal #0x003f1ffc, %sp" to uClinux/linux-2.0.x/arch/m68knommu/platform/68000/MacPlus/crt0_ram.S<br>
+   The bootloader should set the stack pointer according to the actual Mac Plus memory size, rather than simply using MemTop
 5. Run build.sh to build the notvelleda uClinux kernel
 
 ### Build the romfs filesystem
