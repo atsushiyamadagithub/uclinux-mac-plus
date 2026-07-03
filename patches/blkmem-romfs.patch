@@ -1,0 +1,37 @@
+--- blkmem.c	2026-06-26 23:05:19.965604900 +0900
++++ linux-2.0.x/drivers/block/blkmem.c	2026-06-26 23:29:45.690153657 +0900
+@@ -171,7 +171,7 @@
+ #endif
+ 
+ #if defined(CONFIG_MAC_PLUS)
+-
++#define CAT_ROMARRAY
+ #endif
+ 
+ /******* END OF BOARD-SPECIFIC CONFIGURATION ************/
+@@ -205,7 +205,7 @@
+ /* If defined, ROOT_ARENA causes the root device to be the specified arena, useful with romfs */
+ 
+ /* Now defining ROOT_DEV in arch/setup.c */
+-/*#define ROOT_ARENA 0*/
++#define ROOT_ARENA 0
+ 
+ struct arena_t;
+ 
+@@ -311,9 +311,15 @@
+ #endif
+ 
+ #ifdef CAT_ROMARRAY
++#if defined(CONFIG_MAC_PLUS)
++	{0, 0x00300000, -1},
++#else
+ 	{0, 0, -1},
++#endif
++/*#define FIXUP_ARENAS \
++        arena[0].address = (unsigned long)__data_rom_start + (unsigned long)_edata - (unsigned long)__data_start;*/
+ #define FIXUP_ARENAS \
+-        arena[0].address = (unsigned long)__data_rom_start + (unsigned long)_edata - (unsigned long)__data_start;
++	arena[0].address = 0x00300000;
+ #endif
+ 
+ #ifdef CONFIG_ARCH_GBA

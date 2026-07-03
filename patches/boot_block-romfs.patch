@@ -1,0 +1,25 @@
+--- boot_block.s	2026-06-27 22:23:34.855993400 +0900
++++ ./bootloader/boot_block.s	2026-06-27 22:28:05.172149155 +0900
+@@ -188,6 +188,13 @@
+     moveb #0xcc, (%a1)
+     bsr increment_counter
+ 
++    moveal #0x00300000, %a3
++
++    /* load the romfs.img */
++    lea romfs_name(%pc), %a4
++    movew #romfs_len, %d7
++    bsr load_file
++
+     /* move stack pointer to top of ram */
+     movel (MemTop), %sp
+     subql #4, %sp
+@@ -536,6 +543,8 @@
+ .equ kernel_len,    6                   /* length of the filename of the kernel */
+ cmdline_name:       .ascii "cmdline"    /* filename of the kernel's command line arguments */
+ .equ cmdline_len,   7                   /* length of the filename of the command line arguments */
++romfs_name:        .ascii "romfs.img"   /* filename of the romfs */
++.equ romfs_len,     9                   /* length of the filename of the romfs */
+ 
+ end:
+ 
