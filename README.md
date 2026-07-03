@@ -39,8 +39,11 @@ Confirm that the msh shell prompt appears
 
 ### Current Status
 
- Successfully reached the `msh` shell prompt.
-The kernel is booted from the floppy image, and the ext2 filesystem is used as the root filesystem.
+Successfully reached the msh shell prompt using all of the following boot configurations:
+
+* Booting from a kernel floppy image with a custom SCSI hard disk image (ext2 root filesystem)
+* Booting from a kernel + custom ROMFS floppy disk image (ROMFS root filesystem)
+* Booting from a SCSI hard disk image containing both the kernel and the root filesystem, prepared from the notvelleda repository
 
 <img width="962" height="673" alt="4" src="https://github.com/user-attachments/assets/f0a184d4-24ce-4809-bb0e-075c799bd059" />
 
