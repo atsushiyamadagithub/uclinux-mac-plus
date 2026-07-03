@@ -22,7 +22,9 @@ Successfully reached the msh shell prompt using all of the following boot config
 * Booting from a kernel floppy image with a custom SCSI hard disk image (ext2 root filesystem)
   - [Build custom SCSI hard disk image](Build-custom-SCSI-hard-disk-image.md)
 * Booting from a kernel + custom ROMFS floppy disk image (ROMFS root filesystem)
+  - [Build romfs floppy image instructions](Build-romfs-floppy-image-instructions.md)
 * Booting from a SCSI hard disk image containing both the kernel and the root filesystem, prepared from the notvelleda repository
+  - [Build notvelleda SCSI hard disk image](Build-notvelleda-SCSI-hard-disk-image.md)
 
 <img width="962" height="673" alt="4" src="https://github.com/user-attachments/assets/f0a184d4-24ce-4809-bb0e-075c799bd059" />
 <img width="962" height="673" alt="7" src="https://github.com/user-attachments/assets/5438d0a4-8196-4ec3-8a98-dbe7cd9896a6" />
