@@ -18,7 +18,7 @@ The kernel boots correctly, starts init, and launches the shell.
 Prebuilt disk images are available for all supported boot configurations.
 - [mame-images](mame-images)
 
-### Current Status
+## Current Status
 
 Successfully reached the msh shell prompt using all of the following boot configurations:
 
@@ -33,7 +33,7 @@ Successfully reached the msh shell prompt using all of the following boot config
 <img width="962" height="673" alt="7" src="https://github.com/user-attachments/assets/5438d0a4-8196-4ec3-8a98-dbe7cd9896a6" />
 <img width="962" height="673" alt="6" src="https://github.com/user-attachments/assets/3c95b74f-93d4-40f8-973c-bf500af220df" />
 
-### Notes
+## Notes
 
 This work was performed while investigating:
 
