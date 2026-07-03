@@ -9,14 +9,16 @@ The kernel boots correctly, starts init, and launches the shell.
 - MAME 0.285 (LLP64)
 - Machine: Macintosh Plus (`macplus`)
 
-### Disk Image
+### Disk Images
 
 - Boot kernel floppy image and custom SCSI hard disk image
 - Boot kernel and custom ROMFS floppy disk image
 - Kernel and root filesystem SCSI hard disk image prepared from notvelleda repository
 
-You can try it with prebuilt images.
-- [Prebuilt images](mame-images)
+## Prebuilt Images
+
+Prebuilt disk images are available for all supported boot configurations.
+- [mame-images](mame-images)
 
 ### Current Status
 
