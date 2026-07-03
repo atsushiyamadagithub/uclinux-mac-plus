@@ -20,6 +20,7 @@ The kernel boots correctly, starts init, and launches the shell.
 Successfully reached the msh shell prompt using all of the following boot configurations:
 
 * Booting from a kernel floppy image with a custom SCSI hard disk image (ext2 root filesystem)
+  - [Build custom SCSI hard disk image](Build-custom-SCSI-hard-disk-image.md)
 * Booting from a kernel + custom ROMFS floppy disk image (ROMFS root filesystem)
 * Booting from a SCSI hard disk image containing both the kernel and the root filesystem, prepared from the notvelleda repository
 
