@@ -1,4 +1,26 @@
-If you build the kernel using `make menuconfig`, be sure to enable:
+If you build the kernel using `make menuconfig`, 
+
+1. Run docker container following command for kernel build environment  
+
+   docker run -it --rm --user $(id -u):$(id -g) --mount type=bind,source="$(pwd)",target=/linux --workdir /linux -e TERM=xterm-256color uclinux-buildenv:0.1 bash
+
+2. make ARCH=m68knommu CROSS_COMPILE=m68k-elf- menuconfig
+
+   Kernel/Library/Defaults Selection  --->
+
+   Customize Kernel Settings
+
+   be sure to enable: ROM disk memory block
+
+<img width="859" height="410" alt="ROM disk memory block device" src="https://github.com/user-attachments/assets/fe7c2b6b-3fc0-41c1-ae0c-bdcb36e068f1" />
+
+   be sure to enable: ROM filesystem support
+   
+   Filesystems  --->
+
+   <*> ROM filesystem support
+
+   Exit and Save
 
 <img width="859" height="410" alt="ROM filesystem support" src="https://github.com/user-attachments/assets/5fe59560-985a-4f6c-9c80-7e5cc17a8fd7" />
 
@@ -8,28 +30,6 @@ File systems
 Without this option, the kernel will panic with:
 
 Kernel panic: VFS: Unable to mount root fs on 1f:00
-<img width="859" height="410" alt="ROM disk memory block device" src="https://github.com/user-attachments/assets/fe7c2b6b-3fc0-41c1-ae0c-bdcb36e068f1" />
-
-1. Run docker container following command for kernel build environment  
-
-   docker run -it --rm --user $(id -u):$(id -g) --mount type=bind,source="$(pwd)",target=/linux --workdir /linux -e TERM=xterm-256color uclinux-buildenv:0.1 bash
-
-2. menuconfig
-   make ARCH=m68knommu CROSS_COMPILE=m68k-elf- menuconfig
-
-   Kernel/Library/Defaults Selection  --->
-
-   Customize Kernel Settings
-
-   Floppy, IDE, and other block devices
-
-   <*> ROM disk memory block device
-
-   Filesystems  --->
-
-   <*> ROM filesystem support
-
-   Exit and Save
 
 3. 
    make ARCH=m68knommu CROSS_COMPILE=m68k-elf- clean
