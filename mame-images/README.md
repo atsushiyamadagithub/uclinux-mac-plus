@@ -1,4 +1,4 @@
-## Start MAME:
+## Prebuilt disk images
 Prebuilt disk images are available in this directory.
 
 ### Use ext2 root filesystem
