@@ -15,6 +15,8 @@ The kernel boots correctly, starts init, and launches the shell.
 - Boot kernel and custom ROMFS floppy disk image
 - Kernel and root filesystem SCSI hard disk image prepared from notvelleda repository
 
+You can try it with pre-built image.
+
 ### Current Status
 
 Successfully reached the msh shell prompt using all of the following boot configurations:
