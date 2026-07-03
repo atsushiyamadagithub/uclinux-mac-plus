@@ -2,11 +2,9 @@
 
 1. Change to the buildenv directory and run build.sh to build the Docker build environment
 2. Create a `bootloader` directory alongside the `uClinux` and `user` directories, and copy the original bootloader files from notvelleda's repository into it.
-3. Run build.sh to build the notvelleda uClinux kernel
-
-   Added "moveal #0x003f1ffc, %sp" to uClinux/linux-2.0.x/arch/m68knommu/platform/68000/MacPlus/crt0_ram.S
-
+3. Add "moveal #0x003f1ffc, %sp" to uClinux/linux-2.0.x/arch/m68knommu/platform/68000/MacPlus/crt0_ram.S<br>
    The bootloader should set the stack pointer according to the actual Mac Plus memory size, rather than simply using MemTop
+4. Run build.sh to build the notvelleda uClinux kernel 
 
 ### Build the ext2 root filesystem
 1. Change to the user directory and run build.sh to build the root filesystem
