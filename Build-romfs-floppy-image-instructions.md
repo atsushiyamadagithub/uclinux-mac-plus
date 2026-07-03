@@ -1,4 +1,4 @@
-### Boot Procedure for Custom ROMFS image
+## Boot Procedure for Custom ROMFS image
 
 ### Build the boot_block
 
