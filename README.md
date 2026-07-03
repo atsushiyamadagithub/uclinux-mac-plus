@@ -16,7 +16,7 @@ The kernel boots correctly, starts init, and launches the shell.
 - Kernel and root filesystem SCSI hard disk image prepared from notvelleda repository
 
 You can try it with pre-built image.
-- [pre-built images](pre-built)
+- [Prebuilt images](mame images)
 
 ### Current Status
 
