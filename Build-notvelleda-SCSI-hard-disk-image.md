@@ -1,4 +1,4 @@
-### Boot Procedure for notvelleda SCSI hard disk image
+### Build notvelleda SCSI hard disk image
 
 Since the installer places the ext2 filesystem starting at sector 16, the loop device is created with an offset of 16 × 512 bytes before running mkfs.ext2:<br>
 Accordingly, buildntvfs.sh was modified as follows:<br>
