@@ -1,6 +1,6 @@
 ## Boot Procedure for Custom ROMFS image
 
-### Build the boot_block
+### Patch to the boot_block
 
 ```patch -p0 < boot_block-romfs.patch```
 
