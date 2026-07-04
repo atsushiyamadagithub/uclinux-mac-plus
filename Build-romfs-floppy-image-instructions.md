@@ -44,7 +44,7 @@
 ### Build the romfs filesystem
 
 1. Change to the user directory and run buildr.sh to build the romfs filesystem
-2. Run buildfs.sh to build the romfs filesystem disk image. The resulting image file is romfs.img
+2. Run buildrfs.sh to build the romfs filesystem disk image. The resulting image file is romfs.img
 
    This custom user/buildrfs.sh script builds an romfs filesystem image.
    The kernel is booted from the floppy image, and the romfs filesystem is used as the root filesystem.
