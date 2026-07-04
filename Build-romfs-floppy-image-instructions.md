@@ -9,11 +9,11 @@
 1. Run docker container following command for kernel build environment<br>
 ```docker run -it --rm --user $(id -u):$(id -g) --mount type=bind,source="$(pwd)",target=/linux --workdir /linux -e TERM=xterm-256color uclinux-buildenv:0.1 bash```
 
-3.
-   ```make ARCH=m68knommu CROSS_COMPILE=m68k-elf- menuconfig```
-
-   Kernel/Library/Defaults Selection  ---> Customize Kernel Settings
+2. Customize kernel settings foe ROMFS<br>
+   ```make ARCH=m68knommu CROSS_COMPILE=m68k-elf- menuconfig```<br>
+   Select Kernel/Library/Defaults Selection  --->
 <img width="859" height="410" alt="1" src="https://github.com/user-attachments/assets/83810055-28e8-4465-895e-a5cb68d6ed98" />
+   <br>    Select Customize Kernel Settings<br>
 <img width="859" height="410" alt="2" src="https://github.com/user-attachments/assets/8c411c13-6e81-41bc-a5a6-2035599fc2a4" />
 <img width="859" height="410" alt="3" src="https://github.com/user-attachments/assets/91d26204-fe3f-478c-ba9e-2c999a727ec2" />
 
@@ -29,36 +29,17 @@
 
    Exit and Save
    
-4. 
+3.
    ```make ARCH=m68knommu CROSS_COMPILE=m68k-elf- clean```<br>
    ```make ARCH=m68knommu CROSS_COMPILE=m68k-elf- dep```<br>
    ```make ARCH=m68knommu CROSS_COMPILE=m68k-elf-```<br>
 
-5. Modify uClinux/linux-2.0.x/drivers/block/blkmem.c
-
---> 174
-   #if defined(CONFIG_MAC_PLUS)
-       #define CAT_ROMARRAY
-   #endif
-
-   #define ROOT_ARENA 0 --> 208
-
---> 313
-#ifdef CAT_ROMARRAY
-#if defined(CONFIG_MAC_PLUS)
-	{0, 0x00300000, -1},
-#else
-	{0, 0, -1},
-#endif
-#define FIXUP_ARENAS \
-	arena[0].address = 0x00300000;
-#endif
-
+4.  Patch to uClinux/linux-2.0.x/drivers/block/blkmem.c
 ```patch -p0 < blkmem-romfs.patch```
 
-4. Add "moveal #0x003f1ffc, %sp" to uClinux/linux-2.0.x/arch/m68knommu/platform/68000/MacPlus/crt0_ram.S<br>
+5. Add "moveal #0x003f1ffc, %sp" to uClinux/linux-2.0.x/arch/m68knommu/platform/68000/MacPlus/crt0_ram.S<br>
    The bootloader should set the stack pointer according to the actual Mac Plus memory size, rather than simply using MemTop
-5. Run build.sh to build the notvelleda uClinux kernel
+6. Run build.sh to build the notvelleda uClinux kernel
 
 ### Build the romfs filesystem
 
