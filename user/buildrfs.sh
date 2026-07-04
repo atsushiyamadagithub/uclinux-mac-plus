@@ -1,11 +1,10 @@
 #!/bin/sh
 
 FILE=floppy.img
-#MOUNTDIR=__mountdir
-MOUNTDIR=romfs
+MOUNTDIR=__mountdir
 DEVICE=/dev/loop0
 PARTITION=${DEVICE}p1
-FSDIR=rootdir
+FSDIR=romfs
 OVERLAYDIR=rootdir-overlay
 SIZE=64M
 KERNEL_PATH=../uClinux/images/kernel
@@ -15,7 +14,7 @@ BOOTLOADER_DIR=../bootloader
 unmount() {
     sudo umount "$MOUNTDIR"
     sudo losetup -d "$DEVICE"
-    rm -r "$MOUNTDIR"
+#    rm -r "$MOUNTDIR"
 }
 
 quit() {
@@ -37,13 +36,13 @@ mke2fs -t ext2 -b 1024 -O none -I 128 $FILE
 dd if=../bootloader/boot_block.bin of=$FILE bs=1024 count=1 conv=notrunc 
 
 echo "Mounting..."
-sudo rm -r $MOUNTDIR/*
-mkdir -p $MOUNTDIR 
+#sudo rm -r $MOUNTDIR/*
+#mkdir -p $MOUNTDIR 
 sudo mount -o loop $FILE $MOUNTDIR
 
 #echo "Copying files..."
-#sudo cp -rv $FSDIR/* "$MOUNTDIR" || quit true
-#sudo ln -s /var/tmp "$MOUNTDIR/tmp"
+sudo cp -rv $FSDIR/* "$MOUNTDIR" || quit true
+sudo ln -s /var/tmp "$MOUNTDIR/tmp"
 
 echo "Generate romfs..."
 genromfs -v -V ROMdisk -f romfs.img -d romfs
