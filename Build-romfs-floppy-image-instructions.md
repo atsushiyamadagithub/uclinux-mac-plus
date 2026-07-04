@@ -49,7 +49,7 @@
    This custom user/buildrfs.sh script builds an romfs filesystem image.
    The kernel is booted from the floppy image, and the romfs filesystem is used as the root filesystem.
    
-3. Change to the uClinux directory and run buildbf.sh to build the boot floppy image. The resulting image file is floppy.img
+3. Change to the uClinux directory and run buildbff.sh to build the boot floppy image. The resulting image file is floppy.img
 
 ### Start MAME
 mame macplus -flop1 floppy.img
