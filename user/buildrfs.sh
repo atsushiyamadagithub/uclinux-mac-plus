@@ -1,7 +1,8 @@
 #!/bin/sh
 
 FILE=floppy.img
-MOUNTDIR=__mountdir
+#MOUNTDIR=__mountdir
+MOUNTDIR=romfs
 DEVICE=/dev/loop0
 PARTITION=${DEVICE}p1
 FSDIR=rootdir
