@@ -6,10 +6,13 @@
 
 ### Build the kernel
 
-1. Run docker container following command for kernel build environment<br>
+1.  Patch to uClinux/linux-2.0.x/drivers/block/blkmem.c
+```patch -p0 < blkmem-romfs.patch```
+
+2. Run docker container following command for kernel build environment<br>
 ```docker run -it --rm --user $(id -u):$(id -g) --mount type=bind,source="$(pwd)",target=/linux --workdir /linux -e TERM=xterm-256color uclinux-buildenv:0.1 bash```
 
-2. Customize kernel settings foe ROMFS<br>
+3. Customize kernel settings foe ROMFS<br>
    ```make ARCH=m68knommu CROSS_COMPILE=m68k-elf- menuconfig```<br>
    Select Kernel/Library/Defaults Selection  --->
 <img width="859" height="410" alt="1" src="https://github.com/user-attachments/assets/83810055-28e8-4465-895e-a5cb68d6ed98" />
@@ -29,14 +32,11 @@
 
    Exit and Save
    
-3.
+4.
    ```make ARCH=m68knommu CROSS_COMPILE=m68k-elf- clean```<br>
    ```make ARCH=m68knommu CROSS_COMPILE=m68k-elf- dep```<br>
    ```make ARCH=m68knommu CROSS_COMPILE=m68k-elf-```<br>
-
-4.  Patch to uClinux/linux-2.0.x/drivers/block/blkmem.c
-```patch -p0 < blkmem-romfs.patch```
-
+   
 5. Add "moveal #0x003f1ffc, %sp" to uClinux/linux-2.0.x/arch/m68knommu/platform/68000/MacPlus/crt0_ram.S<br>
    The bootloader should set the stack pointer according to the actual Mac Plus memory size, rather than simply using MemTop
 6. Run build.sh to build the notvelleda uClinux kernel
