@@ -1,7 +1,7 @@
 ## Boot Procedure for Custom ROMFS image
 
 ### Patch to the boot_block
-
+Create a bootloader directory alongside the uClinux and user directories, and copy the original bootloader files from notvelleda's repository into it.
 ```patch -p0 < boot_block-romfs.patch```
 
 ### Build the kernel
