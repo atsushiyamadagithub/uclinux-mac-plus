@@ -1,5 +1,7 @@
 ## Boot Procedure for notvelleda SCSI hard disk image
 
+Create a bootloader directory alongside the uClinux and user directories, and copy the original bootloader files from notvelleda's repository into it.
+
 ### Build the kernel
 Run **build.sh** to build the notvelleda uClinux kernel
 I added "moveal #0x003f1ffc, %sp" to uClinux/linux-2.0.x/arch/m68knommu/platform/68000/MacPlus/crt0_ram.S<br>
