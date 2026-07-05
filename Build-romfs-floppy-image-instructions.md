@@ -14,30 +14,26 @@
 
 3. Customize kernel settings foe ROMFS<br>
    ```make ARCH=m68knommu CROSS_COMPILE=m68k-elf- menuconfig```<br>
-   Select Kernel/Library/Defaults Selection  --->
+   Select "Kernel/Library/Defaults Selection"
 <img width="859" height="410" alt="1" src="https://github.com/user-attachments/assets/83810055-28e8-4465-895e-a5cb68d6ed98" />
-   <br>    Select Customize Kernel Settings<br>
+<br>
+   Select "Customize Kernel Settings"<br>
 <img width="859" height="410" alt="2" src="https://github.com/user-attachments/assets/8c411c13-6e81-41bc-a5a6-2035599fc2a4" />
-<img width="859" height="410" alt="3" src="https://github.com/user-attachments/assets/91d26204-fe3f-478c-ba9e-2c999a727ec2" />
 
-   be sure to enable: ROM disk memory block device
+   Be sure to enable: ROM disk memory block device
 
    <img width="859" height="410" alt="ROM disk memory block device" src="https://github.com/user-attachments/assets/fe7c2b6b-3fc0-41c1-ae0c-bdcb36e068f1" />
 
-   be sure to enable: ROM filesystem support
+   Be sure to enable: ROM filesystem support, save kernel configuration
 
    <img width="859" height="410" alt="ROM filesystem support" src="https://github.com/user-attachments/assets/5fe59560-985a-4f6c-9c80-7e5cc17a8fd7" />
-
-<img width="859" height="410" alt="4" src="https://github.com/user-attachments/assets/af9a96c5-147e-420b-914f-40cc48497739" />
-
-   Exit and Save
    
 4.
    ```make ARCH=m68knommu CROSS_COMPILE=m68k-elf- clean```<br>
    ```make ARCH=m68knommu CROSS_COMPILE=m68k-elf- dep```<br>
    ```make ARCH=m68knommu CROSS_COMPILE=m68k-elf-```<br>
    
-5. Run build.sh to build the notvelleda uClinux kernel<br>
+5. Exit docker container and run uClinux/build.sh to build the notvelleda uClinux kernel<br>
    I added "moveal #0x003f1ffc, %sp" to uClinux/linux-2.0.x/arch/m68knommu/platform/68000/MacPlus/crt0_ram.S<br>
    The bootloader should set the stack pointer according to the actual Mac Plus memory size, rather than simply using MemTop
 
