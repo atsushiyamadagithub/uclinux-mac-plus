@@ -12,7 +12,10 @@ PARTLOOP=$(sudo losetup -f --show -o $((16*512)) "$FILE") || quit true<br>
 sudo mkfs.ext2 -O none -I 128 "$PARTLOOP" || quit true<br>
 
 1. Change to the user directory and run **build.sh** to build the root filesystem
-2. Run **buildntvfs.sh** to build the root filesystem disk image. The resulting image file is root.img
+2. Run uClinux/build.sh to build the notvelleda uClinux kernel
+ I added "moveal #0x003f1ffc, %sp" to uClinux/linux-2.0.x/arch/m68knommu/platform/68000/MacPlus/crt0_ram.S
+ The bootloader should set the stack pointer according to the actual Mac Plus memory size, rather than simply using MemTop
+3. Run **buildntvfs.sh** to build the root filesystem disk image. The resulting image file is root.img
 
 ### Start MAME
 mame macplus -hard1 root.img
