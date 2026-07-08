@@ -3,7 +3,7 @@
 ### copy the original bootloader files from notvelleda's repository
 Create a bootloader directory alongside the uClinux and user directories, and copy the original bootloader files from notvelleda's repository into it.
 
-### Patch to the bootloader/boot_block
+### Patch to the bootloader/boot_block.s
 ```patch -p0 < boot_block.patch```
 The bootloader sets the stack pointer according to the actual Mac Plus memory size, using MemTop
 
