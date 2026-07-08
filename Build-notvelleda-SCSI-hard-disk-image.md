@@ -6,10 +6,12 @@ Create a bootloader directory alongside the uClinux and user directories, and co
 ### Patch to the boot_block
 ```patch -p0 < boot_block.patch```
 
+### Patch to to uClinux/linux-2.0.x/arch/m68knommu/platform/68000/MacPlus/crt0_ram.S<br>
+```patch -p0 < crt0_ram.patch```
+The bootloader sets the stack pointer according to the actual Mac Plus memory size, using MemTop
+
 ### Build the kernel
 Run **build.sh** to build the notvelleda uClinux kernel
-I added "moveal #0x003f1ffc, %sp" to uClinux/linux-2.0.x/arch/m68knommu/platform/68000/MacPlus/crt0_ram.S<br>
-The bootloader should set the stack pointer according to the actual Mac Plus memory size, rather than simply using MemTop
 
 ### Build the notvelleda root filesystem
 Since the installer places the ext2 filesystem starting at sector 16, the loop device is created with an offset of 16 × 512 bytes before running mkfs.ext2:<br>
