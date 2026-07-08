@@ -2,7 +2,7 @@
 
 Create a bootloader directory alongside the uClinux and user directories, and copy the original bootloader files from notvelleda's repository into it.
 ### Patch to the boot_block
-```patch -p0 < boot_block-romfs.patch```
+```patch -p0 < boot_block.patch```
 
 ### Build the kernel
 Run **build.sh** to build the notvelleda uClinux kernel
