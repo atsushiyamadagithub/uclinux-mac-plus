@@ -5,10 +5,10 @@ Create a bootloader directory alongside the uClinux and user directories, and co
 
 ### Patch to the bootloader/boot_block
 ```patch -p0 < boot_block.patch```
+The bootloader sets the stack pointer according to the actual Mac Plus memory size, using MemTop
 
 ### Patch to to uClinux/linux-2.0.x/arch/m68knommu/platform/68000/MacPlus/crt0_ram.S<br>
 ```patch -p0 < crt0_ram.patch```
-The bootloader sets the stack pointer according to the actual Mac Plus memory size, using MemTop
 
 ### Build the kernel
 Run **build.sh** to build the notvelleda uClinux kernel
