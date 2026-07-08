@@ -3,7 +3,7 @@
 ### copy the original bootloader files from notvelleda's repository
 Create a bootloader directory alongside the uClinux and user directories, and copy the original bootloader files from notvelleda's repository into it.
 
-### Patch to the boot_block
+### Patch to the bootloader/boot_block
 ```patch -p0 < boot_block.patch```
 
 ### Patch to to uClinux/linux-2.0.x/arch/m68knommu/platform/68000/MacPlus/crt0_ram.S<br>
