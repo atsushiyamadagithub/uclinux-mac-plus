@@ -1,0 +1,28 @@
+--- boot_block.s	2024-07-18 19:32:48.000000000 +0900
++++ bootloader/boot_block.s	2026-07-08 18:29:07.851293422 +0900
+@@ -189,13 +189,20 @@
+     bsr increment_counter
+ 
+     /* move stack pointer to top of ram */
+-    movel (MemTop), %sp
+-    subql #4, %sp
++/*    movel (MemTop), %sp
++    subql #4, %sp*/
++    movel (MemTop), %a1
++    subal #0xe000, %a1
++    subql #4,%a1
+ 
+     /* push address of command line arguments onto stack */
+-    lea after_fill(%pc), %a1
+-    addl block_size(%pc), %a1
+-    movel %a1, -(%sp)
++/*    lea after_fill(%pc), %a1
++    addl block_size(%pc), %a1*/
++    movel %a1, -(%sp)*/
++    lea after_fill(%pc),%a2
++    addl block_size(%pc),%a2
++    movel %a1,-(%sp)      /* stack top */
++    movel %a2,-(%sp)      /* cmdline */
+ 
+     jsr (%a0)
+ 
