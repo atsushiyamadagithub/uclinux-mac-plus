@@ -1,5 +1,6 @@
 ## Boot Procedure for Custom SCSI hard disk image
 
+### build the notvelleda uClinux kernel
 1. Change to the buildenv directory and run **build.sh** to build the Docker build environment
 2. Create a `bootloader` directory alongside the `uClinux` and `user` directories, and copy the original bootloader files from notvelleda's repository into it.
 3. Patch to the bootloader/boot_block.s
