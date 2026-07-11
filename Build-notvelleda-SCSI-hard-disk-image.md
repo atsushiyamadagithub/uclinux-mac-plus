@@ -1,18 +1,5 @@
 ## Boot Procedure for notvelleda SCSI hard disk image
 
-### copy the original bootloader files from notvelleda's repository
-Create a bootloader directory alongside the uClinux and user directories, and copy the original bootloader files from notvelleda's repository into it.
-
-### Patch to the bootloader/boot_block.s
-```patch -p0 < boot_block.patch```
-The bootloader sets the stack pointer according to the actual Mac Plus memory size, using MemTop
-
-### Patch to to uClinux/linux-2.0.x/arch/m68knommu/platform/68000/MacPlus/crt0_ram.S<br>
-```patch -p0 < crt0_ram.patch```
-
-### Build the kernel
-Run **build.sh** to build the notvelleda uClinux kernel
-
 ### Build the notvelleda root filesystem
 Since the installer places the ext2 filesystem starting at sector 16, the loop device is created with an offset of 16 × 512 bytes before running mkfs.ext2:<br>
 Accordingly, buildntvfs.sh was modified as follows:<br>
