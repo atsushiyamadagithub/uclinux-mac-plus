@@ -23,17 +23,27 @@ Prebuilt disk images are available for all supported boot configurations.
 Successfully reached the msh shell prompt using all of the following boot configurations:
 
 * Booting from a kernel floppy image with a custom SCSI hard disk image (ext2 root filesystem)
-  - [Build custom SCSI hard disk image](Build-custom-SCSI-hard-disk-image.md)
 * Booting from a kernel + custom ROMFS floppy disk image (ROMFS root filesystem)
-  - [Build romfs floppy image instructions](Build-romfs-floppy-image-instructions.md)
 * Booting from a SCSI hard disk image containing both the kernel and the root filesystem, prepared from the notvelleda repository
-  - [Build notvelleda SCSI hard disk image](Build-notvelleda-SCSI-hard-disk-image.md)
 
 <img width="962" height="673" alt="4" src="https://github.com/user-attachments/assets/f0a184d4-24ce-4809-bb0e-075c799bd059" />
 <img width="962" height="673" alt="7" src="https://github.com/user-attachments/assets/5438d0a4-8196-4ec3-8a98-dbe7cd9896a6" />
 <img width="962" height="673" alt="6" src="https://github.com/user-attachments/assets/3c95b74f-93d4-40f8-973c-bf500af220df" />
 
-## To build the kernel or the root filesystem, you need Docker and the provided build environment.
+## To build the kernel or the root filesystem
+You need Docker and the provided build environment.
+1. Change to the buildenv directory and run **build.sh** to build the Docker build environment
+2. Create a `bootloader` directory alongside the `uClinux` and `user` directories, and copy the original bootloader files from notvelleda's repository into it.
+3. Patch to the bootloader/boot_block.s
+```patch -p0 < boot_block.patch```
+The bootloader sets the stack pointer according to the actual Mac Plus memory size, using MemTop
+4. Patch to to uClinux/linux-2.0.x/arch/m68knommu/platform/68000/MacPlus/crt0_ram.S<br>
+```patch -p0 < crt0_ram.patch```
+5. Run **uClinux/build.sh** to build the notvelleda uClinux kernel
+
+  - [Build custom SCSI hard disk image](Build-custom-SCSI-hard-disk-image.md)
+  - [Build romfs floppy image instructions](Build-romfs-floppy-image-instructions.md)
+  - [Build notvelleda SCSI hard disk image](Build-notvelleda-SCSI-hard-disk-image.md)
 
 ## Notes
 
