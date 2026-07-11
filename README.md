@@ -40,9 +40,11 @@ The bootloader sets the stack pointer according to the actual Mac Plus memory si
 4. Patch to to uClinux/linux-2.0.x/arch/m68knommu/platform/68000/MacPlus/crt0_ram.S<br>
 ```patch -p0 < crt0_ram.patch```
 5. Run **uClinux/build.sh** to build the notvelleda uClinux kernel
+
 You are ready to build disk images.
 
 ## Build disk images
+You can build the following boot configurations
   - [Build custom SCSI hard disk image](Build-custom-SCSI-hard-disk-image.md)
   - [Build romfs floppy image instructions](Build-romfs-floppy-image-instructions.md)
   - [Build notvelleda SCSI hard disk image](Build-notvelleda-SCSI-hard-disk-image.md)
