@@ -33,6 +33,8 @@ Successfully reached the msh shell prompt using all of the following boot config
 <img width="962" height="673" alt="7" src="https://github.com/user-attachments/assets/5438d0a4-8196-4ec3-8a98-dbe7cd9896a6" />
 <img width="962" height="673" alt="6" src="https://github.com/user-attachments/assets/3c95b74f-93d4-40f8-973c-bf500af220df" />
 
+## To build the kernel or the root filesystem, you need Docker and the provided build environment.
+
 ## Notes
 
 This work was performed while investigating:
