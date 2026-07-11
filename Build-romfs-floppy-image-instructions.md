@@ -33,8 +33,6 @@
    ```make ARCH=m68knommu CROSS_COMPILE=m68k-elf-```<br>
    
 5. Exit docker container and run uClinux/build.sh to build the notvelleda uClinux kernel<br>
-   I added "moveal #0x003f1ffc, %sp" to uClinux/linux-2.0.x/arch/m68knommu/platform/68000/MacPlus/crt0_ram.S<br>
-   The bootloader should set the stack pointer according to the actual Mac Plus memory size, rather than simply using MemTop
 
 ### Build the romfs filesystem
 
