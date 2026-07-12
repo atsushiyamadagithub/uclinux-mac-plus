@@ -1,5 +1,5 @@
 --- crt0_ram.S	2026-07-08 21:56:47.361198700 +0900
-+++ ../../r3/uclinux-mac-plus/uClinux/linux-2.0.x/arch/m68knommu/platform/68000/MacPlus/crt0_ram.S	2026-07-07 18:26:12.693701350 +0900
++++ MacPlus/crt0_ram.S	2026-07-07 18:26:12.693701350 +0900
 @@ -8,7 +8,11 @@
  _start:
      /* interrupts should already be disabled, bss should be cleared, and the stack should already set at the end of RAM by the bootloader */
