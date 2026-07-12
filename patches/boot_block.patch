@@ -18,7 +18,7 @@
 -    movel %a1, -(%sp)
 +/*    lea after_fill(%pc), %a1
 +    addl block_size(%pc), %a1*/
-+    movel %a1, -(%sp)*/
++/*  movel %a1, -(%sp)*/
 +    lea after_fill(%pc),%a2
 +    addl block_size(%pc),%a2
 +    movel %a1,-(%sp)      /* stack top */
