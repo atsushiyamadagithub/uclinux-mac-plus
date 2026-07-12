@@ -3,7 +3,7 @@
 ### Build the notvelleda root filesystem
 1. Change to the user directory and run **build.sh** to build the root filesystem
 2. Run uClinux/build.sh to build the notvelleda uClinux kernel
-3.  Change to the user directory and run **buildntvfs.sh** to build the root filesystem disk image. The resulting image file is root.img
+3. Change to the user directory and run **buildntvfs.sh** to build the root filesystem disk image. The resulting image file is root.img
 Since the installer places the ext2 filesystem starting at sector 16, the loop device is created with an offset of 16 × 512 bytes before running mkfs.ext2:<br>
 Accordingly, buildntvfs.sh was modified as follows:<br>
 PARTLOOP=$(sudo losetup -f --show -o $((16*512)) "$FILE") || quit true<br>
