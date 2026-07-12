@@ -46,8 +46,8 @@ You are ready to build disk images.
 ## Build disk images
 You can build the following boot configurations
   - [Build custom SCSI hard disk image](Build-custom-SCSI-hard-disk-image.md)
-  - [Build romfs floppy image instructions](Build-romfs-floppy-image-instructions.md)
   - [Build notvelleda SCSI hard disk image](Build-notvelleda-SCSI-hard-disk-image.md)
+  - [Build romfs floppy image instructions](Build-romfs-floppy-image-instructions.md)
 
 ## Notes
 
