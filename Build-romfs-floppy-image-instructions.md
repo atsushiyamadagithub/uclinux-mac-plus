@@ -1,6 +1,6 @@
 ## Boot Procedure for Custom ROMFS image
 
-### Patch to the bootloader/boot_block
+### Patch to the bootloader/boot_block.s
 ```patch -p0 < boot_block-romfs.patch```
 
 Patch files are located in the patches directory.
