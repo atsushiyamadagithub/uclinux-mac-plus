@@ -1,3 +1,5 @@
+Patches are available in this directory.
+
 ### Patch to boot_block for kernel stack pointer ###
 
 boot_block.patch
