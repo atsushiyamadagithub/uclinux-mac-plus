@@ -38,6 +38,8 @@ You need Docker and the provided build environment.
    
 ```patch -p0 < boot_block.patch```
 
+Patch files are located in the patches directory.
+
 The bootloader sets the stack pointer according to the actual Mac Plus memory size, using MemTop
 
 4. Patch to to uClinux/linux-2.0.x/arch/m68knommu/platform/68000/MacPlus/crt0_ram.S
