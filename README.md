@@ -44,8 +44,6 @@ The bootloader sets the stack pointer according to the actual Mac Plus memory si
 
 ```patch -p0 < crt0_ram.patch```
 
- - [crt0_ram.patch](patches/crt0_ram.patch]
-
 5. Run **uClinux/build.sh** to build the notvelleda uClinux kernel
 
 You are ready to build disk images.
