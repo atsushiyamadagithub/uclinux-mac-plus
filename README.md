@@ -35,10 +35,17 @@ You need Docker and the provided build environment.
 1. Change to the buildenv directory and run **build.sh** to build the Docker build environment
 2. Create a `bootloader` directory alongside the `uClinux` and `user` directories, and copy the original bootloader files from notvelleda's repository into it.
 3. Patch to the bootloader/boot_block.s
+   
 ```patch -p0 < boot_block.patch```
+
 The bootloader sets the stack pointer according to the actual Mac Plus memory size, using MemTop
-4. Patch to to uClinux/linux-2.0.x/arch/m68knommu/platform/68000/MacPlus/crt0_ram.S<br>
+
+4. Patch to to uClinux/linux-2.0.x/arch/m68knommu/platform/68000/MacPlus/crt0_ram.S
+
 ```patch -p0 < crt0_ram.patch```
+
+ - [crt0_ram.patch](patches/crt0_ram.patch]
+
 5. Run **uClinux/build.sh** to build the notvelleda uClinux kernel
 
 You are ready to build disk images.
