@@ -35,7 +35,7 @@ Patch files are located in the patches directory.
    ```make ARCH=m68knommu CROSS_COMPILE=m68k-elf- dep```<br>
    ```make ARCH=m68knommu CROSS_COMPILE=m68k-elf-```<br>
    
-5. Exit docker container and run uClinux/build.sh to build the notvelleda uClinux kernel<br>
+5. Exit docker container and run **uClinux/build.sh** to build the notvelleda uClinux kernel<br>
 
 ### Build the romfs filesystem
 
