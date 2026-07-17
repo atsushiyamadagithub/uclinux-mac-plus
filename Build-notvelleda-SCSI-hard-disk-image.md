@@ -1,15 +1,15 @@
 ## Boot Procedure for notvelleda SCSI hard disk image
 
 ### Build the notvelleda root filesystem
-1. Change to the user directory and run **build.sh** to build the root filesystem
-2. Run **buildntvfs.sh** to build the root filesystem disk image. The resulting image file is root.img
+1. Change to the user directory and run **build.sh** to build the root filesystem.
+2. Run **buildntvfs.sh** to build the root filesystem disk image. The resulting image file is root.img.
 Since the installer places the ext2 filesystem starting at sector 16, the loop device is created with an offset of 16 × 512 bytes before running mkfs.ext2:<br>
 Accordingly, buildntvfs.sh was modified as follows:<br>
 PARTLOOP=$(sudo losetup -f --show -o $((16*512)) "$FILE") || quit true<br>
 sudo mkfs.ext2 -O none -I 128 "$PARTLOOP" || quit true
 
 ### Start MAME
-mame macplus -hard1 root.img
+```mame macplus -hard1 root.img```
 
 <img width="962" height="673" alt="1" src="https://github.com/user-attachments/assets/088a61db-7c5e-4b41-8275-5a8ea7d12469" />
 
