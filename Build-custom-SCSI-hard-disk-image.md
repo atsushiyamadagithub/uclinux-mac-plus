@@ -4,7 +4,7 @@
 1. Change to the user directory and run **build.sh** to build the root filesystem
 2. Run **buildfs.sh** to build the root filesystem disk image. The resulting image file is root.img
 
-   This custom user/buildfs.sh script builds an ext2 root filesystem image on /dev/sda without a Macintosh partition map.
+   This custom user/buildfs.sh script builds an ext2 root filesystem image on /dev/sda without a Macintosh partition map.<br>
    The kernel is booted from the floppy image, and the ext2 filesystem is used as the root filesystem.
    
 3. Change to the uClinux directory and run **buildbf.sh** to build the boot floppy image. The resulting image file is floppy.img
