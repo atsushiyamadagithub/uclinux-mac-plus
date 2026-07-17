@@ -12,7 +12,7 @@ Patch files are located in the patches directory.
    ```patch -p0 < blkmem-romfs.patch```
 
 2. Run docker container following command for kernel build environment<br>
-```docker run -it --rm --user $(id -u):$(id -g) --mount type=bind,source="$(pwd)",target=/linux --workdir /linux -e TERM=xterm-256color uclinux-buildenv:0.1 bash```
+   ```docker run -it --rm --user $(id -u):$(id -g) --mount type=bind,source="$(pwd)",target=/linux --workdir /linux -e TERM=xterm-256color uclinux-buildenv:0.1 bash```
 
 3. Customize kernel settings foe ROMFS<br>
    ```make ARCH=m68knommu CROSS_COMPILE=m68k-elf- menuconfig```<br>
