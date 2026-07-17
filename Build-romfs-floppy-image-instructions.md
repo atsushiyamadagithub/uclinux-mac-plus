@@ -9,7 +9,7 @@ Patch files are located in the patches directory.
 
 1.  Patch to uClinux/linux-2.0.x/drivers/block/blkmem.c
 
-```patch -p0 < blkmem-romfs.patch```
+   ```patch -p0 < blkmem-romfs.patch```
 
 2. Run docker container following command for kernel build environment<br>
 ```docker run -it --rm --user $(id -u):$(id -g) --mount type=bind,source="$(pwd)",target=/linux --workdir /linux -e TERM=xterm-256color uclinux-buildenv:0.1 bash```
