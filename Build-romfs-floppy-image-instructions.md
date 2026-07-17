@@ -8,7 +8,6 @@ Patch files are located in the patches directory.
 ### Build the kernel
 
 1.  Patch to uClinux/linux-2.0.x/drivers/block/blkmem.c
-
    ```patch -p0 < blkmem-romfs.patch```
 
 2. Run docker container following command for kernel build environment<br>
