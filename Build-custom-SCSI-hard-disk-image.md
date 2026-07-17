@@ -10,7 +10,7 @@
    The resulting image file is floppy.img.
 
 ### Start MAME
-mame macplus -hard1 root.img -flop1 floppy.img
+```mame macplus -hard1 root.img -flop1 floppy.img```
 
 Wait for the kernel to boot
 Confirm that the msh shell prompt appears.
