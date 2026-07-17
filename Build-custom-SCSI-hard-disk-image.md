@@ -7,7 +7,7 @@
    The kernel is booted from the floppy image, and the ext2 filesystem is used as the root filesystem.
    
 3. Change to the uClinux directory and run **buildbf.sh** to build the boot floppy image.<br>
-   The resulting image file is floppy.img
+   The resulting image file is floppy.img.
 
 ### Start MAME
 mame macplus -hard1 root.img -flop1 floppy.img
