@@ -13,7 +13,7 @@
 mame macplus -hard1 root.img -flop1 floppy.img
 
 Wait for the kernel to boot
-Confirm that the msh shell prompt appears
+Confirm that the msh shell prompt appears.
 
 <img width="962" height="673" alt="4" src="https://github.com/user-attachments/assets/f0a184d4-24ce-4809-bb0e-075c799bd059" />
 
