@@ -18,7 +18,7 @@ The kernel boots correctly, starts init, and launches the shell.
 - Kernel and root filesystem SCSI hard disk image prepared from notvelleda repository
 
 Prebuilt disk images are available for all supported boot configurations.
-- [mame-images](mame-images)
+- [mame-images](https://github.com/atsushiyamadagithub/uclinux-mac-plus/tree/main/mame-images)
 
 ## Current Status
 
