@@ -6,6 +6,6 @@ The kernel boots correctly, starts init, and launches the shell.
 
 [uclinux-mac-plus](https://github.com/atsushiyamadagithub/uclinux-mac-plus)
 
-<img width="962" height="673" src="https://github.com/user-attachments/assets/f0a184d4-24ce-4809-bb0e-075c799bd059 “alt="HappyMac” />
-<img width="962" height="673" src="https://github.com/user-attachments/assets/5438d0a4-8196-4ec3-8a98-dbe7cd9896a6" alt="uClinuxKernelStart”  />
-<img width="962" height="673" src="https://github.com/user-attachments/assets/3c95b74f-93d4-40f8-973c-bf500af220df" alt="Shell”  />
+<img width="962" height="673" src="https://github.com/user-attachments/assets/f0a184d4-24ce-4809-bb0e-075c799bd059 “alt="4” />
+<img width="962" height="673" src="https://github.com/user-attachments/assets/5438d0a4-8196-4ec3-8a98-dbe7cd9896a6" alt="5”  />
+<img width="962" height="673" src="https://github.com/user-attachments/assets/3c95b74f-93d4-40f8-973c-bf500af220df" alt="6”  />
