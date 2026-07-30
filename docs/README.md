@@ -1,10 +1,8 @@
-# uClinux for the Mac Plus
+[# uClinux for the Mac Plus](https://github.com/atsushiyamadagithub/uclinux-mac-plus)
 
 This repository is a fork of the original work by notvelleda.
 My goal is to boot uClinux on a Macintosh Plus emulated by MAME and reach a working shell prompt.
 The kernel boots correctly, starts init, and launches the shell.
-
-[uclinux-mac-plus](https://github.com/atsushiyamadagithub/uclinux-mac-plus)
 
 <img width="962" height="673" alt="4" src="https://github.com/user-attachments/assets/f0a184d4-24ce-4809-bb0e-075c799bd059" />
 
