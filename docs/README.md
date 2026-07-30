@@ -3,14 +3,11 @@ This repository is a fork of the original work by notvelleda.
 My goal is to boot uClinux on a Macintosh Plus emulated by MAME and reach a working shell prompt.
 The kernel boots correctly, starts init, and launches the shell.
 
-<img width="962" height="673" alt="4" src="https://github.com/user-attachments/assets/f0a184d4-24ce-4809-bb0e-075c799bd059" />
+## Happy Mac appears while loading uClinux kernel.
+<img width="962" height="673" alt="HappyMacLoadingKernel" src="https://github.com/user-attachments/assets/57bf9c00-bc2e-40a8-bfb4-41aa9ba335f1" />
 
-The screenshot above shows loading the kernel.
+## uClinux kernel is starting.
+<img width="962" height="673" alt="KernelStaring" src="https://github.com/user-attachments/assets/d4733969-8898-413f-a933-74fd3c98db57" />
 
-<img width="962" height="673" alt="7" src="https://github.com/user-attachments/assets/5438d0a4-8196-4ec3-8a98-dbe7cd9896a6" />
-
-The screenshot above shows the kernel is starting.
-
-<img width="962" height="673" alt="6" src="https://github.com/user-attachments/assets/3c95b74f-93d4-40f8-973c-bf500af220df" />
-
-The screenshot above shows successful startup of the system and arrival at the shell prompt.
+## Startup of the system and arrival at the shell prompt.
+<img width="962" height="673" alt="ShellLaunch" src="https://github.com/user-attachments/assets/3eb98fe9-89df-4db0-a58f-959b85142032" />
