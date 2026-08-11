@@ -12,4 +12,13 @@ The kernel boots correctly, starts init, and launches the shell.
 ## Startup of the system and arrival at the shell prompt.
 <img width="962" height="673" alt="mac-plus-ShellLaunch" src="https://github.com/user-attachments/assets/c500de81-e071-4246-a0e3-6a57daa31ba9" />
 
+### Disk Images
+
+- Boot kernel floppy image and custom SCSI hard disk image
+- Boot kernel and custom ROMFS floppy disk image
+- Kernel and root filesystem SCSI hard disk image prepared from notvelleda repository
+
+Prebuilt disk images are available for all supported boot configurations.
+- [mame-images](mame-images)
+
 ## Special thanks to notvelleda for making the original source code available.
